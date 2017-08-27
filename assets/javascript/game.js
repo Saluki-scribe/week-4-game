@@ -38,14 +38,14 @@ $("document").ready(function() {
 //DRY OUT CODE if you have time. Find a selector that will insert whatever's clicked.
     console.log("currentPlayer before: " + currentPlayer);
 
-if(currentPlayer === undefined) {
+
 
     $("#jacob-div").one("click", function () {
         var toBeEnemies = $("div[class^=fighter]").not(this);
         console.log(toBeEnemies);
         toBeEnemies.removeClass("fighter-status-div").addClass("enemy-status-div");
         $("#enemy-section-div").append(toBeEnemies);
-        //this.removeClass("fighter-status-div").addClass("player-status-div");        
+        $(this).removeClass("fighter-status-div").addClass("player-status-div");        
         
         currentPlayer = jacob;
         console.log("currentPlayer after: " + currentPlayer);
@@ -59,9 +59,10 @@ if(currentPlayer === undefined) {
         console.log(toBeEnemies);
         toBeEnemies.removeClass("fighter-status-div").addClass("enemy-status-div");
         $("#enemy-section-div").append(toBeEnemies);
+        $(this).removeClass("fighter-status-div").addClass("player-status-div");                
         
         currentPlayer = lupin;
-        console.log("currentPlayer after: " + currentPlayer);
+        console.log("currentPlayer after: " + currentPlayer.name);
         
 
     });
@@ -71,9 +72,10 @@ if(currentPlayer === undefined) {
         console.log(toBeEnemies);
         toBeEnemies.removeClass("fighter-status-div").addClass("enemy-status-div");
         $("#enemy-section-div").append(toBeEnemies);
+        $(this).removeClass("fighter-status-div").addClass("player-status-div");                
         
         currentPlayer = larry;
-        console.log("currentPlayer after: " + currentPlayer);
+        console.log("currentPlayer after: " + currentPlayer.name);
         
     });
 
@@ -82,6 +84,7 @@ if(currentPlayer === undefined) {
         console.log(toBeEnemies);
         toBeEnemies.removeClass("fighter-status-div").addClass("enemy-status-div");
         $("#enemy-section-div").append(toBeEnemies);
+        $(this).removeClass("fighter-status-div").addClass("player-status-div");                
         
         currentPlayer = david;
         console.log("currentPlayer after: " + currentPlayer);
@@ -89,26 +92,23 @@ if(currentPlayer === undefined) {
         
         
     });
-
-} else{
-    console.log("Current player wasn't equal to undefined.");
-} //End If statement for player selector
+ 
 
 //Defender Selector
 //DRY OUT CODE if you have time. Find a selector that will insert whatever's clicked.
-/*    
+    
 $("#jacob-div").one("click", function () {
     console.log("this function works");
-    var toBeDefender = $(this);
+    /*var toBeDefender = $(this);
     console.log("Defender is " + toBeDefender);
     toBeDefender.removeClass("enemy-status-div").addClass("defender-status-div");
     $("#defender-section-div").append(toBeDefender);
     
-    console.log(currentPlayer);
+    console.log(currentPlayer);*/
     
     
 });
-*/
+
 
 
 //$(“p[id^=para][lang*=en-]”).css
