@@ -10,10 +10,10 @@ function Fighter(name, movie, hp, attackPower, counterAttackPower) {
 
 //All fighters defined as objects
 
-var jacob = new Fighter("Jacob Black", "Twilight Series", 100, 5, 5);
-var lupin = new Fighter("Professor Remus Lupin", "Harry Potter Series", 120, 8, 8);
-var larry = new Fighter("Larry \"The Wolf Man\" Talbot", "The Wolf Man (1941)", 150, 20, 20);
-var david = new Fighter("David Kessler", "An American Werewolf in London", 180, 25, 25);
+var jacob = new Fighter("Jacob Black", "Twilight Series", 100, 8, 8);
+var lupin = new Fighter("Professor Remus Lupin", "Harry Potter Series", 110, 10, 10);
+var larry = new Fighter("Larry \"The Wolf Man\" Talbot", "The Wolf Man (1941)", 130, 10, 10);
+var david = new Fighter("David Kessler", "An American Werewolf in London", 140, 15, 15);
 
 $("document").ready(function() {
 
@@ -36,11 +36,7 @@ $("document").ready(function() {
         
         //If the player:
         $("div[id=jacob-div][class=player-status-div]").on("mouseleave", function () {
-
-            $("#jacob-div").css("border", "6px solid blue");
             currentPlayer = jacob;
-            console.log("The current player is: " + currentPlayer.name);
-
         }); //End player nested click function
 
         //If an ememy:
@@ -202,29 +198,28 @@ $("document").ready(function() {
             //$(“#example p.a, #example p.b”).remove();
             //Choose the next fighter.
 
-        //If you won against the current enemy and have no more enemies to fight...
+        //If you won against the current enemy and have no more enemies to fight... WIN!!!
         } else if (currentDefender.hp <= 0 && $("#enemy-section-div").children("div").length <= 0 ) {
             $(".defender-status-div").remove();            
-            $("#game-info").html("<p>You've slaughtered " + currentDefender.name + ".</p><p> You killed them all...</p><p> I guess that counts as winning... </p> <p> Go to sleep now and forget. Everything will be fine in the morning.</p>")
-            //You won! Reveal restart button.
-            $("#info-section-div").append("<button>Sleep2</button>");
+            $("#game-info").html("<p>You've slaughtered " + currentDefender.name + ".</p><p> You killed them all.</p><p> I guess that counts as winning...</p>")
+            $("#info-section-div").append("<button id=\"restart-button\">Forget</button>");
+            $("div #attack-button").off("click");
+            
         } 
         
-    //If you're dead on this round... 
+    //If you're dead on this round... LOSE!!!
 
-        if (currentPlayer.hp <= 0) {
-            //You lose! Reveal restart button.
+        if (currentDefender.hp >= 0 && currentPlayer.hp <= 0) {
             $(".player-status-div").remove();            
-            $("#game-info").html("<p>You've been slaughtered by " + currentDefender.name + ".</p> <p> Well, at least you can sleep now. Sleep and start over.</p>");
-            $("#info-section-div").append("<button id=\"restart-button\">Sleep</button>");
+            $("#game-info").html("<p>You've been slaughtered by " + currentDefender.name + ".</p> <p> Well, at least you can stop for good now. Or can you?</p>");
+            $("#info-section-div").append("<button id=\"restart-button\">Wake Up</button>");
+            $("div #attack-button").off("click");
         };
         
-    //Restart the game
+    //RESTART the game
 
         $("#restart-button").on("click", function() {
-
         location.reload();
-
         });
 
 
@@ -264,8 +259,8 @@ Players:
 
 Things to fix:
 
-1) Make all elements unable to interact after win or lose, except for the restart button
 2) Make attack start at base attack for player, and then increase
-3) 
+3) Get enemy selection to be one click
+4) Get player div status assignment to go through in one click
 
 */

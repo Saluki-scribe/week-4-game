@@ -1,23 +1,25 @@
 
 /*General*/
 
-html {
-    height: 100%;
-}
-
 body {
-    background-image: url(../images/background-moon.jpg);
-    background-repeat: no-repeat;
+    background-image: url(../images/background-moon-red.jpg);
     background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin-left: 20px;
 }
 h1 {
     color: red;
-    font-size: 32px;
+    font-size: 60px;
+    font-family: 'Shadows Into Light', cursive;
+    margin: 20px 100px 20px;
+    text-align: right;
 }
 
 h2 {
     color: red;
-    font-size: 24px;
+    font-size: 30px;
+    font-family: 'Shadows Into Light', cursive;
+    margin: 15px 0;    
 }
 
 .top-info {
@@ -123,6 +125,14 @@ h2 {
     float: left;
 }
 
+/*INFO Section*/
+
+#info-section-div {
+    height: 150px;
+    margin: 10px 0;
+}
+
 #game-info {
     color: white;
+    padding-bottom: 10px;
 }
