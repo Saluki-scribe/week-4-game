@@ -168,37 +168,31 @@ $("document").ready(function() {
           
     }); //End david click event
  
-
+//ATTACK button function
 
     $("#attack-button").on("click", function() {
         
         if($("#defender-section-div").children("div").length > 0) {
-            console.log("We can attack now!");
-            //Subtract currentPlayer attack from currentDefender HP
-            //Subtract currentDefender attack from currentPlayer HP
-            //Replace text in the div that's in the player div section with currentPlayer HP
-            //Replace text in the div that's in the defender div section with currentDefender HP
-            //Print to screen info that says:
-            //    "You attacked" + currentDefender "for " + attackPower + " damage."
-            //    currentDefender + " attacked you back for " + currentDefender.attackPower
-            //Increase attackPower by 8 (+=attackPower)
 
-        console.log("Current def's hp: " + currentDefender.hp);    
-        currentDefender.hp -= currentPlayer.attackPower;
-        console.log("Current def's hp: " + currentDefender.hp);
-        console.log("Current Player's attack power: " + currentPlayer.attackPower);     
+        //Calculate attack power
+
+        currentDefender.hp -= currentPlayer.attackPower;    
         currentPlayer.attackPower+= currentPlayer.counterAttackPower;
-        console.log("Current Player's attack power: " + currentPlayer.attackPower); 
         currentPlayer.hp -= currentDefender.counterAttackPower;
-        console.log("Current Player's hp: " + currentPlayer.hp);
         
         //Display HP Remaining
-        
+
         $(".player-status-div p[class=bottom-info]").text(currentPlayer.hp);
         $(".defender-status-div p[class=bottom-info]").text(currentDefender.hp);
     
+        $("#defender-info").html("<p> You attacked " + currentDefender.name + " for " + currentPlayer.attackPower + " damage.</p><p> " + currentDefender.name + " attacked you back for " + currentDefender.attackPower + " damage.")
         
+        //+ currentDefender + "for " + attackPower + "damage. </p><br>");
 
+
+        
+        //    currentDefender + " attacked you back for " + currentDefender.attackPower
+        //Increase attackPower by 8 (+=attackPower)
 
         } else{
             console.log("We can't attack yet.");
