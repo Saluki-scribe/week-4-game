@@ -38,7 +38,7 @@ $("document").ready(function() {
 //CAUTION: WET. Find a selector that will insert whatever's clicked.
     console.log("currentPlayer before: " + currentPlayer);
 
-
+//JACOB Click Event
 
     $("div[id=jacob-div][class=fighter-status-div]").on("click", function (event) {
         
@@ -48,20 +48,30 @@ $("document").ready(function() {
         $("#enemy-section-div").append(toBeEnemies);
         $("div[class=fighter-status-div]").removeClass("fighter-status-div").addClass("player-status-div");        
         
-
+        //If the player:
         $("div[id=jacob-div][class=player-status-div]").on("mouseleave", function () {
 
             $("#jacob-div").css("border", "6px solid blue");
             currentPlayer = jacob;
             console.log("The current player is: " + jacob.name);
-        })
+        });
+
+        //If an ememy:
+        $("div[id=jacob-div][class=enemy-status-div]").on("mouseleave", function () {
+            
+            $("#jacob-div").css("border", "6px solid yellow");
+            console.log("This enemy jacob runs...")
+        
+        });
         
     }); //End Jacob Click event
+
+//LUPIN Click Event
     
-    $("div[id=lupin-div][class=fighter-status-div]").one("click", function (event) {
+    $("div[id=lupin-div][class=fighter-status-div]").on("click", function (event) {
 
         var toBeEnemies = $("div[class^=fighter]").not(this);
-        console.log(toBeEnemies);
+        console.log("toBeEnemies: " + toBeEnemies);
         toBeEnemies.removeClass("fighter-status-div").addClass("enemy-status-div");
         $("#enemy-section-div").append(toBeEnemies);
         $("div[class=fighter-status-div]").removeClass("fighter-status-div").addClass("player-status-div");                
@@ -75,9 +85,11 @@ $("document").ready(function() {
 
     }); //End Lupin click event
 
-    $("div[id=larry-div][class=fighter-status-div]").one("click", function (event) {
+//LARRY (WOLFMAN) Click Event
+
+    $("div[id=larry-div][class=fighter-status-div]").on("click", function (event) {
         var toBeEnemies = $("div[class^=fighter]").not(this);
-        console.log(toBeEnemies);
+        console.log("toBeEnemies: " + toBeEnemies);
         toBeEnemies.removeClass("fighter-status-div").addClass("enemy-status-div");
         $("#enemy-section-div").append(toBeEnemies);
         $("div[class=fighter-status-div]").removeClass("fighter-status-div").addClass("player-status-div");                
@@ -89,9 +101,11 @@ $("document").ready(function() {
         console.log("The current player is: " + larry.name);
     });
         
-    }); //End Larry click event
+    }); //End Larry (Wolfman) click event
 
-    $("div[id=david-div][class=fighter-status-div]").one("click", function (event) {
+//DAVID (AMERICAN) Click Event
+
+    $("div[id=david-div][class=fighter-status-div]").on("click", function (event) {
         var toBeEnemies = $("div[class^=fighter]").not(this);
         console.log(toBeEnemies);
         toBeEnemies.removeClass("fighter-status-div").addClass("enemy-status-div");
@@ -117,11 +131,11 @@ $("document").ready(function() {
 //DEFENDER Section Code
 //CAUTION: WET
 
-    $("div[id=lupin-div][class=fighter-status-div]").css("border", "6px solid yellow");
+    if (currentPlayer == undefined) {
 
-$("div[id=jacob-div][class=enemy-status-div]").on("mouseenter", function () {
-    console.log("This runs...")
-});
+    }
+
+
 
 
 //$(“p[id^=para][lang*=en-]”).css
