@@ -190,21 +190,35 @@ $("document").ready(function() {
 
         } else{
             $("#defender-info").html("<p>Woah, heel! You can't attack without choosing a player and defender.") 
-            //Print to screen, "Please choose a player and defender."
         };
+
+
+    //If you're still alive on this round but your enemy's dead...
+
+        //If you won against the current enemy but have more enemies to fight...
+        if (currentDefender.hp <= 0 /*&& $("enemy-section-div").children("div").length > 0*/) {
+            $(".defender-status-div").remove();
+            console.log("You're dead!");
+            //$(“#example p.a, #example p.b”).remove();
+            //Choose the next fighter.
+
+        //If you won against the current enemy and have no more enemies to fight...
+        } else if (currentDefender.hp <= 0 && $("enemy-section-div").children("div").length == 0 ) {
+
+            //You won! Reveal restart button.
+        } 
         
-        if (currentDefender.hp <= 0 || currentPlayer.hp <= 0) {
-            console.log("Ya'll dead.");
+    //If you're dead on this round... 
+
+        if (currentPlayer.hp <= 0) {
+            //You lose! Reveal restart button.
         };
 
 
-
-        })//End attack button function
-
+    })//End attack button function
 
 
-    }); //End document.ready
-
+}); //End document.ready
 
 
 
