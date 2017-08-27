@@ -1,4 +1,104 @@
+
+/*General*/
+
+html {
+    height: 100%;
+}
+
+body {
+    background-image: url(../images/background-moon.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
 h1 {
-    color: palevioletred;
+    color: red;
     font-size: 32px;
+}
+
+h2 {
+    color: red;
+    font-size: 24px;
+}
+
+/*Fighters*/
+
+#jacob-div{
+    background-image: url(../images/were-jacob.jpg);
+}
+
+#lupin-div{
+    background-image: url(../images/were-lupin.jpg);
+}
+
+#larry-div{
+    background-image: url(../images/were-wolfman-2.jpg);
+}
+
+#david-div{
+    background-image: url(../images/were-london.jpg);
+}
+
+
+/*START Section*/
+
+#start-section-div{
+    height: 200px;
+}
+
+.fighter-status-div{
+    height: 150px;
+    width: 200px;
+    background-repeat: no-repeat;
+    background-size: 75% 75%;
+    background-position: center;
+    background-color: white;
+    border: 3px solid green;
+    float: left;
+}
+
+/*PLAYER Section*/
+
+.player-status-div{
+    height: 150px;
+    width: 200px;
+    background-repeat: no-repeat;
+    background-size: 75% 75%;
+    background-position: center;
+    background-color: white;
+    border: 3px solid green;
+    float: left;
+}
+
+/*ENEMY Section*/
+
+#enemy-section-div{
+    height: 200px;
+}
+
+.enemy-status-div{
+    height: 150px;
+    width: 200px;
+    background-repeat: no-repeat;
+    background-size: 75% 75%;
+    background-position: center;
+    background-color: red;
+    border: 3px solid black;
+    float: left;
+}
+
+/*DEFENDER Section*/
+
+#defender-section-div{
+    height: 200px;
+}
+
+.defender-status-div{
+    height: 150px;
+    width: 200px;
+    background-repeat: no-repeat;
+    background-size: 75% 75%;
+    background-position: center;
+    background-color: black;
+    border: 3px solid green;
+    float: left;
 }
