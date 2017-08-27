@@ -182,10 +182,22 @@ $("document").ready(function() {
             //    "You attacked" + currentDefender "for " + attackPower + " damage."
             //    currentDefender + " attacked you back for " + currentDefender.attackPower
             //Increase attackPower by 8 (+=attackPower)
-            
-            currentPlayer.attackPower+= currentPlayer.counterAttackPower;
-            console.log("Current Player's attack power: " + currentPlayer.attackPower); 
 
+        console.log("Current def's hp: " + currentDefender.hp);    
+        currentDefender.hp -= currentPlayer.attackPower;
+        console.log("Current def's hp: " + currentDefender.hp);
+        console.log("Current Player's attack power: " + currentPlayer.attackPower);     
+        currentPlayer.attackPower+= currentPlayer.counterAttackPower;
+        console.log("Current Player's attack power: " + currentPlayer.attackPower); 
+        currentPlayer.hp -= currentDefender.counterAttackPower;
+        console.log("Current Player's hp: " + currentPlayer.hp);
+        
+        //Display HP Remaining
+        
+        $(".player-status-div p[class=bottom-info]").text(currentPlayer.hp);
+        $(".defender-status-div p[class=bottom-info]").text(currentDefender.hp);
+    
+        
 
 
         } else{
