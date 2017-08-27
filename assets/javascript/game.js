@@ -185,11 +185,11 @@ $("document").ready(function() {
         $(".player-status-div p[class=bottom-info]").text(currentPlayer.hp);
         $(".defender-status-div p[class=bottom-info]").text(currentDefender.hp);
     
-        $("#defender-info").html("<p> You attacked " + currentDefender.name + " for " + currentPlayer.attackPower + " damage.</p><p> " + currentDefender.name + " attacked you back for " + currentDefender.attackPower + " damage.")
+        $("#game-info").html("<p> You attacked " + currentDefender.name + " for " + currentPlayer.attackPower + " damage.</p><p> " + currentDefender.name + " attacked you back for " + currentDefender.attackPower + " damage.")
         
 
         } else{
-            $("#defender-info").html("<p>Woah, heel! You can't attack without choosing a player and defender.") 
+            $("#game-info").html("<p>Woah, heel! You can't attack without choosing a player and defender.") 
         };
 
 
@@ -198,25 +198,39 @@ $("document").ready(function() {
         //If you won against the current enemy but have more enemies to fight...
         if (currentDefender.hp <= 0 && $("#enemy-section-div").children("div").length > 0) {
             $(".defender-status-div").remove();
-            console.log("You're dead!");
+            $("#game-info").html("<p>You've slaughtered " + currentDefender.name + ". Choose your next victim!")
             //$(“#example p.a, #example p.b”).remove();
             //Choose the next fighter.
 
         //If you won against the current enemy and have no more enemies to fight...
         } else if (currentDefender.hp <= 0 && $("#enemy-section-div").children("div").length <= 0 ) {
             $(".defender-status-div").remove();            
-            console.log("You won!");
+            $("#game-info").html("<p>You've slaughtered " + currentDefender.name + ".</p><p> You killed them all...</p><p> I guess that counts as winning... </p> <p> Go to sleep now and forget. Everything will be fine in the morning.</p>")
             //You won! Reveal restart button.
+            $("#info-section-div").append("<button>Sleep2</button>");
         } 
         
     //If you're dead on this round... 
 
         if (currentPlayer.hp <= 0) {
             //You lose! Reveal restart button.
+            $(".player-status-div").remove();            
+            $("#game-info").html("<p>You've been slaughtered by " + currentDefender.name + ".</p> <p> Well, at least you can sleep now. Sleep and start over.</p>");
+            $("#info-section-div").append("<button id=\"restart-button\">Sleep</button>");
         };
+        
+    //Restart the game
+
+        $("#restart-button").on("click", function() {
+
+        location.reload();
+
+        });
 
 
     })//End attack button function
+
+
 
 
 }); //End document.ready
@@ -248,5 +262,10 @@ Players:
 
 *Bells and whistles. Do this step only after you finish everything else.
 
+Things to fix:
+
+1) Make all elements unable to interact after win or lose, except for the restart button
+2) Make attack start at base attack for player, and then increase
+3) 
 
 */
