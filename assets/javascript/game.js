@@ -196,15 +196,16 @@ $("document").ready(function() {
     //If you're still alive on this round but your enemy's dead...
 
         //If you won against the current enemy but have more enemies to fight...
-        if (currentDefender.hp <= 0 /*&& $("enemy-section-div").children("div").length > 0*/) {
+        if (currentDefender.hp <= 0 && $("#enemy-section-div").children("div").length > 0) {
             $(".defender-status-div").remove();
             console.log("You're dead!");
             //$(“#example p.a, #example p.b”).remove();
             //Choose the next fighter.
 
         //If you won against the current enemy and have no more enemies to fight...
-        } else if (currentDefender.hp <= 0 && $("enemy-section-div").children("div").length == 0 ) {
-
+        } else if (currentDefender.hp <= 0 && $("#enemy-section-div").children("div").length <= 0 ) {
+            $(".defender-status-div").remove();            
+            console.log("You won!");
             //You won! Reveal restart button.
         } 
         
