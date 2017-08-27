@@ -35,92 +35,149 @@ $("document").ready(function() {
     var currentPlayer;
 
 //Player Selector
-//DRY OUT CODE if you have time. Find a selector that will insert whatever's clicked.
+//CAUTION: WET. Find a selector that will insert whatever's clicked.
     console.log("currentPlayer before: " + currentPlayer);
 
 
 
-    $("#jacob-div").one("click", function () {
+    $("div[id=jacob-div][class=fighter-status-div]").on("click", function (event) {
+        
         var toBeEnemies = $("div[class^=fighter]").not(this);
         console.log(toBeEnemies);
         toBeEnemies.removeClass("fighter-status-div").addClass("enemy-status-div");
         $("#enemy-section-div").append(toBeEnemies);
-        $(this).removeClass("fighter-status-div").addClass("player-status-div");        
+        $("div[class=fighter-status-div]").removeClass("fighter-status-div").addClass("player-status-div");        
         
-        currentPlayer = jacob;
-        console.log("currentPlayer after: " + currentPlayer);
-        console.log("currentPlayer name: " + currentPlayer.name);
+
+        $("div[id=jacob-div][class=player-status-div]").on("mouseleave", function () {
+
+            $("#jacob-div").css("border", "6px solid blue");
+            currentPlayer = jacob;
+            console.log("The current player is: " + jacob.name);
+        })
         
-        
-    });
+    }); //End Jacob Click event
     
-    $("#lupin-div").one("click", function () {
+    $("div[id=lupin-div][class=fighter-status-div]").one("click", function (event) {
+
         var toBeEnemies = $("div[class^=fighter]").not(this);
         console.log(toBeEnemies);
         toBeEnemies.removeClass("fighter-status-div").addClass("enemy-status-div");
         $("#enemy-section-div").append(toBeEnemies);
-        $(this).removeClass("fighter-status-div").addClass("player-status-div");                
+        $("div[class=fighter-status-div]").removeClass("fighter-status-div").addClass("player-status-div");                
         
-        currentPlayer = lupin;
-        console.log("currentPlayer after: " + currentPlayer.name);
-        
+        $("div[id=lupin-div][class=player-status-div]").on("mouseleave", function () {
 
-    });
+            $("#lupin-div").css("border", "6px solid blue");
+            currentPlayer = lupin;
+            console.log("The current player is: " + lupin.name);
+        });
 
-    $("#larry-div").one("click", function () {
+    }); //End Lupin click event
+
+    $("div[id=larry-div][class=fighter-status-div]").one("click", function (event) {
         var toBeEnemies = $("div[class^=fighter]").not(this);
         console.log(toBeEnemies);
         toBeEnemies.removeClass("fighter-status-div").addClass("enemy-status-div");
         $("#enemy-section-div").append(toBeEnemies);
-        $(this).removeClass("fighter-status-div").addClass("player-status-div");                
+        $("div[class=fighter-status-div]").removeClass("fighter-status-div").addClass("player-status-div");                
         
+    $("div[id=larry-div][class=player-status-div]").on("mouseleave", function () {
+
+        $("#larry-div").css("border", "6px solid blue");
         currentPlayer = larry;
-        console.log("currentPlayer after: " + currentPlayer.name);
-        
+        console.log("The current player is: " + larry.name);
     });
+        
+    }); //End Larry click event
 
-    $("#david-div").one("click", function () {
+    $("div[id=david-div][class=fighter-status-div]").one("click", function (event) {
         var toBeEnemies = $("div[class^=fighter]").not(this);
         console.log(toBeEnemies);
         toBeEnemies.removeClass("fighter-status-div").addClass("enemy-status-div");
         $("#enemy-section-div").append(toBeEnemies);
-        $(this).removeClass("fighter-status-div").addClass("player-status-div");                
+        $("div[class=fighter-status-div]").removeClass("fighter-status-div").addClass("player-status-div");                
         
-        currentPlayer = david;
-        console.log("currentPlayer after: " + currentPlayer);
-        console.log("currentPlayer name: " + currentPlayer.name);
-        
-        
-    });
+        $("div[id=david-div][class=player-status-div]").on("mouseleave", function () {
+            
+            $("#david-div").css("border", "6px solid blue");
+            currentPlayer = david;
+            console.log("The current player is: " + david.name);
+        })
+          
+    }); //End david click event
  
 
-//Defender Selector
-//DRY OUT CODE if you have time. Find a selector that will insert whatever's clicked.
-    
-$("#jacob-div").one("click", function () {
-    console.log("this function works");
-    /*var toBeDefender = $(this);
-    console.log("Defender is " + toBeDefender);
-    toBeDefender.removeClass("enemy-status-div").addClass("defender-status-div");
-    $("#defender-section-div").append(toBeDefender);
-    
-    console.log(currentPlayer);*/
-    
-    
-});
 
+    $("button").on("click", function() {
+        console.log("currentPlayer: " + currentPlayer.name);
+    })
+
+
+//DEFENDER Section Code
+//CAUTION: WET
+
+    $("div[id=lupin-div][class=fighter-status-div]").css("border", "6px solid yellow");
+
+$("div[id=jacob-div][class=enemy-status-div]").on("mouseenter", function () {
+    console.log("This runs...")
+});
 
 
 //$(“p[id^=para][lang*=en-]”).css
 
+/*on("click", function () {
+    var toBeDefender = $(this);
+    console.log("Defender is " + toBeDefender);
+    toBeDefender.removeClass("enemy-status-div").addClass("defender-status-div");
+    $("#defender-section-div").append(toBeDefender);
+    
+    console.log(currentPlayer);
+    
+});*/
 
-}); //End document.ready
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Defender Selector
+//DRY OUT CODE if you have time. Find a selector that will insert whatever's clicked.
+    
+
+
+
+
+
+
+
+
+
+//$(".enemy-status-div").on("click", function () {
+
+ //   console.log("The enemy function works.");
+//})
+
+
+
+ });//End document.ready
+
 
 
 
 /*
 
-Theme: Famous Werewolves
+Theme: Movie Werewolves
 Players: 
     Jacob Black (Twilight Series)
     David Kessler ( An American Werewolf in London )
