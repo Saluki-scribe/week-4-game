@@ -187,78 +187,24 @@ $("document").ready(function() {
     
         $("#defender-info").html("<p> You attacked " + currentDefender.name + " for " + currentPlayer.attackPower + " damage.</p><p> " + currentDefender.name + " attacked you back for " + currentDefender.attackPower + " damage.")
         
-        //+ currentDefender + "for " + attackPower + "damage. </p><br>");
-
-
-        
-        //    currentDefender + " attacked you back for " + currentDefender.attackPower
-        //Increase attackPower by 8 (+=attackPower)
 
         } else{
-            console.log("We can't attack yet.");
+            $("#defender-info").html("<p>Woah, heel! You can't attack without choosing a player and defender.") 
             //Print to screen, "Please choose a player and defender."
-        }
+        };
         
-    }) //End attack button function
-
-
-//DEFENDER Section Code
-//CAUTION: WET
-
-    if (currentPlayer == undefined) {
-
-    }
+        if (currentDefender.hp <= 0 || currentPlayer.hp <= 0) {
+            console.log("Ya'll dead.");
+        };
 
 
 
-
-//$(“p[id^=para][lang*=en-]”).css
-
-/*on("click", function () {
-    var toBeDefender = $(this);
-    console.log("Defender is " + toBeDefender);
-    toBeDefender.removeClass("enemy-status-div").addClass("defender-status-div");
-    $("#defender-section-div").append(toBeDefender);
-    
-    console.log(currentPlayer);
-    
-});*/
+        })//End attack button function
 
 
 
+    }); //End document.ready
 
-
-
-
-
-
-
-
-
-
-
-
-
-//Defender Selector
-//DRY OUT CODE if you have time. Find a selector that will insert whatever's clicked.
-    
-
-
-
-
-
-
-
-
-
-//$(".enemy-status-div").on("click", function () {
-
- //   console.log("The enemy function works.");
-//})
-
-
-
- });//End document.ready
 
 
 
