@@ -1,34 +1,19 @@
 
-function Fighter(name, movie, hp, attackPower, status, attack) {
+function Fighter(name, movie, hp, attackPower, counterAttackPower) {
     this.name = name;
     this.movie = movie;
     this.hp = hp;
     this.attackPower = attackPower;
-    this.status = function() {
-    //    if(/*player selects Fighter to be their character*/){
-            /*return "player" as status */
-    //    } else if (/*player selects Fighter to be Defender || Fighter is the only enemy left*/){
-            /*return "defender" as status */
-    //    } else{
-            /*return "enemy" as status */
-    //    }
-    }
-    this.attack = function() {
-            
-            //decrease defender or player hp by current attackPower
-            //needs to be an on click trigger
-            //Increase player attackPower by 8 each time event is triggered
-        };
-
+    this.counterAttackPower = counterAttackPower;
     } //End Character object constructor
 
 
 //All fighters defined as objects
 
-var jacob = new Fighter("Jacob Black", "Twilight Series", 100, 5);
-var lupin = new Fighter("Professor Remus Lupin", "Harry Potter Series", 120, 10);
-var larry = new Fighter("Larry \"The Wolf Man\" Talbot", "The Wolf Man (1941)", 150, 15);
-var david = new Fighter("David Kessler", "An American Werewolf in London", 180, 20);
+var jacob = new Fighter("Jacob Black", "Twilight Series", 100, 5, 5);
+var lupin = new Fighter("Professor Remus Lupin", "Harry Potter Series", 120, 8, 8);
+var larry = new Fighter("Larry \"The Wolf Man\" Talbot", "The Wolf Man (1941)", 150, 20, 20);
+var david = new Fighter("David Kessler", "An American Werewolf in London", 180, 25, 25);
 
 $("document").ready(function() {
 
@@ -186,14 +171,29 @@ $("document").ready(function() {
 
 
     $("#attack-button").on("click", function() {
-        if($("#enemy-section-div").children("div").length > 0 && $("#defender-section-div").children("div").length > 0) {
+        
+        if($("#defender-section-div").children("div").length > 0) {
             console.log("We can attack now!");
+            //Subtract currentPlayer attack from currentDefender HP
+            //Subtract currentDefender attack from currentPlayer HP
+            //Replace text in the div that's in the player div section with currentPlayer HP
+            //Replace text in the div that's in the defender div section with currentDefender HP
+            //Print to screen info that says:
+            //    "You attacked" + currentDefender "for " + attackPower + " damage."
+            //    currentDefender + " attacked you back for " + currentDefender.attackPower
+            //Increase attackPower by 8 (+=attackPower)
+            
+            currentPlayer.attackPower+= currentPlayer.counterAttackPower;
+            console.log("Current Player's attack power: " + currentPlayer.attackPower); 
+
+
+
         } else{
             console.log("We can't attack yet.");
+            //Print to screen, "Please choose a player and defender."
         }
-
         
-    })
+    }) //End attack button function
 
 
 //DEFENDER Section Code
