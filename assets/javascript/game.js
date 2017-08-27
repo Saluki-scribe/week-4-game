@@ -33,6 +33,7 @@ var david = new Fighter("David Kessler", "An American Werewolf in London", 140, 
 $("document").ready(function() {
 
     var currentPlayer;
+    var currentDefender;
 
 //Player Selector
 //CAUTION: WET. Find a selector that will insert whatever's clicked.
@@ -53,18 +54,26 @@ $("document").ready(function() {
 
             $("#jacob-div").css("border", "6px solid blue");
             currentPlayer = jacob;
-            console.log("The current player is: " + jacob.name);
-        });
+            console.log("The current player is: " + currentPlayer.name);
+
+        }); //End player nested click function
 
         //If an ememy:
-        $("div[id=jacob-div][class=enemy-status-div]").on("mouseleave", function () {
+        $("div[id=jacob-div][class=enemy-status-div]").on("click", function () {
             
-            $("#jacob-div").css("border", "6px solid yellow");
-            console.log("This enemy jacob runs...")
-        
-        });
+           if ( $("#defender-section-div").children("div").length == 0 ) {
+            var toBeDefender = $("#jacob-div");
+            currentDefender = jacob;
+            console.log("The current defender is: " + currentDefender.name);
+            $("#defender-section-div").append(toBeDefender);
+            $(toBeDefender).removeClass("enemy-status-div").addClass("defender-status-div");
+           }
+
+        }); //End enemy nested click function
         
     }); //End Jacob Click event
+
+    //$(“#example”).children().css(“border”);
 
 //LUPIN Click Event
     
@@ -76,6 +85,8 @@ $("document").ready(function() {
         $("#enemy-section-div").append(toBeEnemies);
         $("div[class=fighter-status-div]").removeClass("fighter-status-div").addClass("player-status-div");                
         
+        //If the player
+
         $("div[id=lupin-div][class=player-status-div]").on("mouseleave", function () {
 
             $("#lupin-div").css("border", "6px solid blue");
@@ -83,7 +94,24 @@ $("document").ready(function() {
             console.log("The current player is: " + lupin.name);
         });
 
+        //If an ememy:
+
+        $("div[id=lupin-div][class=enemy-status-div]").on("click", function () {
+            
+           if ( $("#defender-section-div").children("div").length == 0 ) {
+            var toBeDefender = $("#lupin-div");
+            currentDefender = lupin;
+            console.log("The current defender is: " + currentDefender.name);
+            $("#defender-section-div").append(toBeDefender);
+            $(toBeDefender).removeClass("enemy-status-div").addClass("defender-status-div");
+           }
+
+        }); //End enemy nested click function
+
+
     }); //End Lupin click event
+
+
 
 //LARRY (WOLFMAN) Click Event
 
@@ -93,15 +121,33 @@ $("document").ready(function() {
         toBeEnemies.removeClass("fighter-status-div").addClass("enemy-status-div");
         $("#enemy-section-div").append(toBeEnemies);
         $("div[class=fighter-status-div]").removeClass("fighter-status-div").addClass("player-status-div");                
-        
+       
+    //If the player:
+
     $("div[id=larry-div][class=player-status-div]").on("mouseleave", function () {
 
         $("#larry-div").css("border", "6px solid blue");
         currentPlayer = larry;
         console.log("The current player is: " + larry.name);
-    });
+    }); //End player nested click function
+
+    //If an ememy:
+
+    $("div[id=larry-div][class=enemy-status-div]").on("click", function () {
+        
+       if ( $("#defender-section-div").children("div").length == 0 ) {
+        var toBeDefender = $("#larry-div");
+        currentDefender = larry;
+        console.log("The current defender is: " + currentDefender.name);
+        $("#defender-section-div").append(toBeDefender);
+        $(toBeDefender).removeClass("enemy-status-div").addClass("defender-status-div");
+       }
+
+    }); //End enemy nested click function
         
     }); //End Larry (Wolfman) click event
+
+
 
 //DAVID (AMERICAN) Click Event
 
@@ -112,12 +158,28 @@ $("document").ready(function() {
         $("#enemy-section-div").append(toBeEnemies);
         $("div[class=fighter-status-div]").removeClass("fighter-status-div").addClass("player-status-div");                
         
+        //If the player:
+
         $("div[id=david-div][class=player-status-div]").on("mouseleave", function () {
             
             $("#david-div").css("border", "6px solid blue");
             currentPlayer = david;
             console.log("The current player is: " + david.name);
-        })
+        });
+
+        //If an ememy:
+
+        $("div[id=david-div][class=enemy-status-div]").on("click", function () {
+            
+           if ( $("#defender-section-div").children("div").length == 0 ) {
+            var toBeDefender = $("#david-div");
+            currentDefender = david;
+            console.log("The current defender is: " + currentDefender.name);
+            $("#defender-section-div").append(toBeDefender);
+            $(toBeDefender).removeClass("enemy-status-div").addClass("defender-status-div");
+           } 
+
+        }); //End enemy nested click function
           
     }); //End david click event
  
