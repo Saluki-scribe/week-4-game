@@ -20,21 +20,41 @@ h2 {
     font-size: 24px;
 }
 
+.top-info {
+    text-align: center;
+    color: darkred;
+    position: absolute;
+    top: 0;
+    margin: 0 20px;
+}
+
+.bottom-info {
+    text-align: center;
+    color: darkred;
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+}
+
 /*Fighters*/
 
 #jacob-div{
+    position: relative;
     background-image: url(../images/were-jacob.jpg);
 }
 
 #lupin-div{
+    position: relative;
     background-image: url(../images/were-lupin.jpg);
 }
 
 #larry-div{
+    position: relative;
     background-image: url(../images/were-wolfman-2.jpg);
 }
 
 #david-div{
+    position: relative;
     background-image: url(../images/were-london.jpg);
 }
 

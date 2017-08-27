@@ -25,10 +25,10 @@ function Fighter(name, movie, hp, attackPower, status, attack) {
 
 //All fighters defined as objects
 
-var jacob = new Fighter("Jacob Black", "Twilight Series", 80, 5);
-var lupin = new Fighter("Professor Remus Lupin", "Harry Potter Series", 100, 10);
-var larry = new Fighter("Larry \"The Wolf Man\" Talbot", "The Wolf Man (1941)", 120, 15);
-var david = new Fighter("David Kessler", "An American Werewolf in London", 140, 20);
+var jacob = new Fighter("Jacob Black", "Twilight Series", 100, 5);
+var lupin = new Fighter("Professor Remus Lupin", "Harry Potter Series", 120, 10);
+var larry = new Fighter("Larry \"The Wolf Man\" Talbot", "The Wolf Man (1941)", 150, 15);
+var david = new Fighter("David Kessler", "An American Werewolf in London", 180, 20);
 
 $("document").ready(function() {
 
@@ -185,8 +185,14 @@ $("document").ready(function() {
  
 
 
-    $("button").on("click", function() {
-        console.log("currentPlayer: " + currentPlayer.name);
+    $("#attack-button").on("click", function() {
+        if($("#enemy-section-div").children("div").length > 0 && $("#defender-section-div").children("div").length > 0) {
+            console.log("We can attack now!");
+        } else{
+            console.log("We can't attack yet.");
+        }
+
+        
     })
 
 
