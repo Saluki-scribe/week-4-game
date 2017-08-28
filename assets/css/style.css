@@ -9,7 +9,7 @@ body {
 }
 h1 {
     color: red;
-    font-size: 60px;
+    font-size: 50px;
     font-family: 'Shadows Into Light', cursive;
     margin: 20px 100px 20px;
     text-align: right;
@@ -128,7 +128,7 @@ h2 {
 /*INFO Section*/
 
 #info-section-div {
-    height: 150px;
+    height: 100px;
     margin: 10px 0;
 }
 
