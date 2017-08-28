@@ -24,10 +24,16 @@ $("document").ready(function() {
 //CAUTION: WET. Find a selector that will insert whatever's clicked.
     console.log("currentPlayer before: " + currentPlayer);
 
+
+
 //JACOB Click Event
 
-    $("div[id=jacob-div][class=fighter-status-div]").on("click", function (event) {
+    $("div[id=jacob-div][class=fighter-status-div]").on("click", function () {
         
+        //Change words to "Your Character"
+        $("#start-section-div").children("h2").html("<h2>Your Character</h2>");
+
+        //Set everyone else to enemy status.
         var toBeEnemies = $("div[class^=fighter]").not(this);
         console.log(toBeEnemies);
         toBeEnemies.removeClass("fighter-status-div").addClass("enemy-status-div");
@@ -40,25 +46,25 @@ $("document").ready(function() {
         }); //End player nested click function
 
         //If an ememy:
-        $("div[id=jacob-div][class=enemy-status-div]").on("click", function () {
             
-           if ( $("#defender-section-div").children("div").length == 0 ) {
-            var toBeDefender = $("#jacob-div");
-            currentDefender = jacob;
-            console.log("The current defender is: " + currentDefender.name);
-            $("#defender-section-div").append(toBeDefender);
-            $(toBeDefender).removeClass("enemy-status-div").addClass("defender-status-div");
+           if ( $("#defender-section-div").children("div").length == 0 && $("div[id=jacob-div][class=enemy-status-div]").length > 0 ) {
+                var toBeDefender = $("#jacob-div");
+                currentDefender = jacob;
+                console.log("The current defender is: " + currentDefender.name);
+                $("#defender-section-div").append(toBeDefender);
+                $(toBeDefender).removeClass("enemy-status-div").addClass("defender-status-div");
            }
 
-        }); //End enemy nested click function
+        }); //End Jacob click event
         
-    }); //End Jacob Click event
 
-    //$(“#example”).children().css(“border”);
 
 //LUPIN Click Event
     
     $("div[id=lupin-div][class=fighter-status-div]").on("click", function (event) {
+
+         //Change words to "Your Character"
+         $("#start-section-div").children("h2").html("<h2>Your Character</h2>");
 
         var toBeEnemies = $("div[class^=fighter]").not(this);
         console.log("toBeEnemies: " + toBeEnemies);
@@ -69,25 +75,18 @@ $("document").ready(function() {
         //If the player
 
         $("div[id=lupin-div][class=player-status-div]").on("mouseleave", function () {
-
-            $("#lupin-div").css("border", "6px solid blue");
             currentPlayer = lupin;
-            console.log("The current player is: " + lupin.name);
         });
 
         //If an ememy:
 
-        $("div[id=lupin-div][class=enemy-status-div]").on("click", function () {
-            
-           if ( $("#defender-section-div").children("div").length == 0 ) {
+        if ( $("#defender-section-div").children("div").length == 0 && $("div[id=lupin-div][class=enemy-status-div]").length > 0 ) {
             var toBeDefender = $("#lupin-div");
             currentDefender = lupin;
             console.log("The current defender is: " + currentDefender.name);
             $("#defender-section-div").append(toBeDefender);
             $(toBeDefender).removeClass("enemy-status-div").addClass("defender-status-div");
-           }
-
-        }); //End enemy nested click function
+       }
 
 
     }); //End Lupin click event
@@ -97,6 +96,10 @@ $("document").ready(function() {
 //LARRY (WOLFMAN) Click Event
 
     $("div[id=larry-div][class=fighter-status-div]").on("click", function (event) {
+
+         //Change words to "Your Character"
+         $("#start-section-div").children("h2").html("<h2>Your Character</h2>");
+
         var toBeEnemies = $("div[class^=fighter]").not(this);
         console.log("toBeEnemies: " + toBeEnemies);
         toBeEnemies.removeClass("fighter-status-div").addClass("enemy-status-div");
@@ -106,25 +109,19 @@ $("document").ready(function() {
     //If the player:
 
     $("div[id=larry-div][class=player-status-div]").on("mouseleave", function () {
-
-        $("#larry-div").css("border", "6px solid blue");
         currentPlayer = larry;
-        console.log("The current player is: " + larry.name);
     }); //End player nested click function
 
     //If an ememy:
 
-    $("div[id=larry-div][class=enemy-status-div]").on("click", function () {
-        
-       if ( $("#defender-section-div").children("div").length == 0 ) {
-        var toBeDefender = $("#larry-div");
-        currentDefender = larry;
-        console.log("The current defender is: " + currentDefender.name);
-        $("#defender-section-div").append(toBeDefender);
-        $(toBeDefender).removeClass("enemy-status-div").addClass("defender-status-div");
-       }
+        if ( $("#defender-section-div").children("div").length == 0 && $("div[id=larry-div][class=enemy-status-div]").length > 0 ){
 
-    }); //End enemy nested click function
+            var toBeDefender = $("#larry-div");
+            currentDefender = larry;
+            console.log("The current defender is: " + currentDefender.name);
+            $("#defender-section-div").append(toBeDefender);
+            $(toBeDefender).removeClass("enemy-status-div").addClass("defender-status-div");
+        }
         
     }); //End Larry (Wolfman) click event
 
@@ -133,6 +130,10 @@ $("document").ready(function() {
 //DAVID (AMERICAN) Click Event
 
     $("div[id=david-div][class=fighter-status-div]").on("click", function (event) {
+
+         //Change words to "Your Character"
+         $("#start-section-div").children("h2").html("<h2>Your Character</h2>");
+
         var toBeEnemies = $("div[class^=fighter]").not(this);
         console.log(toBeEnemies);
         toBeEnemies.removeClass("fighter-status-div").addClass("enemy-status-div");
@@ -142,28 +143,23 @@ $("document").ready(function() {
         //If the player:
 
         $("div[id=david-div][class=player-status-div]").on("mouseleave", function () {
-            
-            $("#david-div").css("border", "6px solid blue");
             currentPlayer = david;
-            console.log("The current player is: " + david.name);
         });
 
         //If an ememy:
 
-        $("div[id=david-div][class=enemy-status-div]").on("click", function () {
-            
-           if ( $("#defender-section-div").children("div").length == 0 ) {
-            var toBeDefender = $("#david-div");
-            currentDefender = david;
-            console.log("The current defender is: " + currentDefender.name);
-            $("#defender-section-div").append(toBeDefender);
-            $(toBeDefender).removeClass("enemy-status-div").addClass("defender-status-div");
-           } 
-
-        }); //End enemy nested click function
+            if ( $("#defender-section-div").children("div").length == 0 && $("div[id=david-div][class=enemy-status-div]").length > 0 ) {
+                var toBeDefender = $("#david-div");
+                currentDefender = david;
+                console.log("The current defender is: " + currentDefender.name);
+                $("#defender-section-div").append(toBeDefender);
+                $(toBeDefender).removeClass("enemy-status-div").addClass("defender-status-div");
+        }
           
     }); //End david click event
  
+
+
 //ATTACK button function
 
     $("#attack-button").on("click", function() {
@@ -226,8 +222,6 @@ $("document").ready(function() {
     })//End attack button function
 
 
-
-
 }); //End document.ready
 
 
@@ -235,7 +229,7 @@ $("document").ready(function() {
 
 /*
 
-Theme: Movie Werewolves
+Theme: Werewolves
 Players: 
     Jacob Black (Twilight Series)
     David Kessler ( An American Werewolf in London )
@@ -246,21 +240,18 @@ Players:
 
 1) Set up a "start mode" for the game
     a) Display all characters on the screen with name, picture, and hp in one div
-        i) Div should have a green border
+        i) Div should have a green border*
     b) Have the screen prompt "Your Character" below all player pictures
     c) Further down, should show "Enemies Available to Attack," "Fight Section," an "Attack" button, and "Defender", but all empty
         ii) If "Attack" button is pressed, a message should pop up stating, "First, choose a character and defender."
     d) Should display background image and title of your game* 
 
-2) 
-
+2) I put the rest of the pseudo code throughout the document, and steadily replaced it with actual code.
 
 *Bells and whistles. Do this step only after you finish everything else.
 
 Things to fix:
 
 2) Make attack start at base attack for player, and then increase
-3) Get enemy selection to be one click
-4) Get player div status assignment to go through in one click
 
 */
